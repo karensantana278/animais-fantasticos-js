@@ -36,7 +36,7 @@ body{
 
 .menu li a{
     display: block;
-    padding: 10px;
+    padding: 15px 10px;
     margin-right: 10px;
     color: #222222;
     text-decoration: none;
@@ -96,6 +96,10 @@ body{
     height: 370px;
     overflow-y: scroll; 
     grid-column: 2;
+}
+
+.animais-lista li{
+    cursor: pointer;
 }
 
 .animais-lista::-webkit-scrollbar{
@@ -214,4 +218,72 @@ body{
     .copy{
         margin-bottom: 0px;
     }
+}
+
+
+/* codigo css que faz com que o conteudo da lista de animais so apareça se tiver a classe ativo que adiconamos no codigo javascript */
+.js .js-tabcontent section {
+    display: none;
+}
+
+.js .js-tabcontent section.ativo{
+    display: block;
+    animation: show .5s forwards
+    
+}
+
+@keyframes show {
+    from {
+        opacity: 0;
+        transform: translate3d(-30px, 0, 0)
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0,0,0)
+    }
+}
+
+/* codigo css que faz com que o conteudo do faq so apareça se tiver a classe ativo que adiconamos no codigo javascript */
+
+.js .js-accordion dd{
+    display: none;
+}
+
+.js-accordion dt::after{
+    content: '↴';
+    margin-left: 10px;
+}
+
+.js-accordion dt.ativo::after{
+    content: '⬏';
+}
+
+.js-accordion dd.ativo{
+    display: block;
+    animation: slideDown .5s forwards;
+}
+
+@keyframes slideDown{
+    from{
+        opacity:0;
+        max-height: 0;
+    }
+    to{
+        opacity:1;
+        max-height:200px;
+    }
+}
+
+
+/* codigo css para animação do scroll suave */
+
+.js .js-scroll{
+    opacity: 0;
+    transform: translate3d(-30px, 0, 0);
+    transition: .3s;
+}
+
+.js .js-scroll.ativo{
+    opacity: 1;
+    transform: translate3d(0,0,0);
 }
